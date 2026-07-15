@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5ebdc">
+  <meta name="description" content="Интерактивный курс для менеджеров смены о постановке целей и управлении их достижением в течение дня.">
+  <title>Как управлять достижением целей на день</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="top-nav" aria-label="Навигация по курсу">
+    <div class="nav-inner">
+      <button class="nav-home-btn" type="button" onclick="navigateTo('home')" aria-label="Вернуться на главную">
+        <span aria-hidden="true">←</span><span>К курсу</span>
+      </button>
+      <span id="nav-chapter"></span>
+      <span id="nav-progress" aria-live="polite"></span>
+    </div>
+    <div id="progress-bar-wrap"><div id="progress-bar"></div></div>
+  </nav>
+
+  <main>
+    <section class="page active" id="page-home">
+      <div class="hero-placeholder" role="img" aria-label="Здесь появится главное фото курса">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-content">
+          <h1>Как управлять<br>достижением целей<br>на день</h1>
+          <p>От общей цели ресторана — к понятным действиям каждого сотрудника.</p>
+          <button class="btn-primary hero-start" type="button" onclick="navigateTo('intro')">Начать курс <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="hero-photo-note">
+          <span class="photo-mark" aria-hidden="true">＋</span>
+          <span>Место для Hero-фото</span>
+        </div>
+      </div>
+
+      <div class="home-content">
+        <div class="home-heading fade-in">
+          <h2>Сначала поставим цель.<br>Затем поможем команде её достичь.</h2>
+        </div>
+        <div class="chapter-grid">
+          <button class="chapter-card fade-in" id="home-card-1" type="button" onclick="navigateTo('intro')">
+            <span class="chapter-num">01</span><span class="chapter-copy"><b>Введение</b><small>Зачем управлять целями в течение смены</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in" id="home-card-2" type="button" onclick="navigateTo('goals')">
+            <span class="chapter-num">02</span><span class="chapter-copy"><b>Цели на смену</b><small>От плана ресторана к задачам команды</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in" id="home-card-3" type="button" onclick="navigateTo('smart')">
+            <span class="chapter-num">03</span><span class="chapter-copy"><b>Цели по SMART</b><small>Амбициозно, конкретно и достижимо</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in" id="home-card-4" type="button" onclick="navigateTo('understanding')">
+            <span class="chapter-num">04</span><span class="chapter-copy"><b>Проверка понимания</b><small>Пять вопросов вместо «всё понятно?»</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in" id="home-card-5" type="button" onclick="navigateTo('control')">
+            <span class="chapter-num">05</span><span class="chapter-copy"><b>Управление в течение смены</b><small>Контроль, причины отклонений и коррекция</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in" id="home-card-6" type="button" onclick="navigateTo('finish')">
+            <span class="chapter-num">06</span><span class="chapter-copy"><b>Завершение смены</b><small>Итоги, признание и анализ причин</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+          <button class="chapter-card fade-in wide" id="home-card-7" type="button" onclick="navigateTo('summary')">
+            <span class="chapter-num">07</span><span class="chapter-copy"><b>Главное по теме</b><small>Восемь выводов и рабочие шаблоны</small></span><span class="chapter-arrow">↗</span><span class="chapter-lock">●</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-intro">
+      <header class="chapter-hero chapter-hero-orange">
+        <div class="content-wrap">
+          <span class="chapter-index">01 / 07</span>
+          <p class="eyebrow">Введение</p>
+          <h1>Цель — не бумажка.<br>Это маршрут смены.</h1>
+          <p class="chapter-lead">Почему одной постановки цели недостаточно и какую роль играет менеджер.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="hook-card fade-in">
+          <p class="eyebrow">Знакомая ситуация?</p>
+          <h2>Ты когда-нибудь чувствовал, что…</h2>
+          <ul class="big-check-list">
+            <li>цели на смену — это просто бумажка, которая не работает?</li>
+            <li>ты говоришь одно, а сотрудники делают другое?</li>
+            <li>в конце смены оказывается, что никто не понял, что от них требовалось?</li>
+          </ul>
+          <p class="hook-answer">Если хотя бы на один вопрос ты ответил «да» — этот курс для тебя.</p>
+        </div>
+
+        <div class="intro-summary fade-in">
+          <p>На старте смены у ресторана есть общий план: выручка, продажи и сервис. Менеджер переводит этот план в конкретные задачи сотрудников, проверяет результат и помогает вовремя скорректировать действия. На каждой смене путь выглядит так:</p>
+        </div>
+        <div class="intro-flow fade-in" aria-label="Четыре действия менеджера">
+          <div><span>01</span><b>Поставить</b><small>Каждому сотруднику — свою понятную цель.</small></div><i>→</i>
+          <div><span>02</span><b>Проверить</b><small>Сверить факт с планом во время смены.</small></div><i>→</i>
+          <div><span>03</span><b>Поддержать</b><small>Дать обратную связь и скорректировать действия.</small></div><i>→</i>
+          <div><span>04</span><b>Подвести итог</b><small>Понять, что сработало и что улучшить.</small></div>
+        </div>
+        <div class="intro-next fade-in"><b>Начнём с постановки целей</b><span>Сначала разберём общий план ресторана и получим понятную цель для вечерней смены.</span></div>
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('goals')">К постановке целей <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-goals">
+      <header class="chapter-hero chapter-hero-cream">
+        <div class="content-wrap">
+          <span class="chapter-index">02 / 07</span>
+          <p class="eyebrow">Постановка целей на смену</p>
+          <h1>Одна цель ресторана.<br>Несколько личных задач.</h1>
+          <p class="chapter-lead">Разберём цели вечерней смены и переведём товарооборот в понятный план для кассира.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="section-title fade-in"><h2>Что нужно знать, чтобы поставить цели на смену</h2></div>
+        <div class="quiz-card case-quiz fade-in">
+          <div class="quiz-top"><span>Пример из практики · проверь себя</span><b>01</b></div>
+          <h2>Ты — менеджер вечерней смены</h2>
+          <p>Ответь на три вопроса по ситуации. После каждого ответа увидишь логику расчёта.</p>
+          <div class="case-question">
+            <h3>Утром поставили цель продать 250 новинок, но продали 95. Сколько нужно продать вечером?</h3>
+            <div class="choice-grid"><button type="button" onclick="answerChoice(this, false, 'case-feedback-1')">95 порций</button><button type="button" onclick="answerChoice(this, true, 'case-feedback-1')">155 порций</button><button type="button" onclick="answerChoice(this, false, 'case-feedback-1')">345 порций</button></div>
+            <div class="feedback-box" id="case-feedback-1" aria-live="polite"></div>
+          </div>
+          <div class="case-question">
+            <h3>Цель ресторана по товарообороту — 350 000 рублей, утром заработали 148 000. Какая цель вечерней смены?</h3>
+            <div class="choice-grid"><button type="button" onclick="answerChoice(this, false, 'case-feedback-2')">148 000 ₽</button><button type="button" onclick="answerChoice(this, true, 'case-feedback-2')">202 000 ₽</button><button type="button" onclick="answerChoice(this, false, 'case-feedback-2')">498 000 ₽</button></div>
+            <div class="feedback-box" id="case-feedback-2" aria-live="polite"></div>
+          </div>
+          <div class="case-question">
+            <h3>Утренняя смена завершилась без негативных отзывов. Какая цель остаётся у тебя?</h3>
+            <div class="choice-grid"><button type="button" onclick="answerChoice(this, true, 'case-feedback-3')">Завершить смену с 0 негативных отзывов</button><button type="button" onclick="answerChoice(this, false, 'case-feedback-3')">Проверить отзывы только перед закрытием</button><button type="button" onclick="answerChoice(this, false, 'case-feedback-3')">Сосредоточиться только на выручке</button></div>
+            <div class="feedback-box" id="case-feedback-3" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="case-debrief fade-in"><p class="eyebrow">Что показал пример</p><p>Общий план не остаётся цифрой в отчёте: из него получается конкретная цель вечерней смены — 155 новинок, 202 000 рублей и 0 негативных отзывов.</p><div><span>Общая цель ресторана</span><b>→</b><span>Цель смены</span><b>→</b><span>Задачи сотрудников</span></div><p>Теперь переходим от цели смены к распределению задач: кто и каким действием поможет её выполнить.</p></div>
+
+        <div class="section-title fade-in"><h2>Как из общей цели поставить задачу каждому сотруднику смены</h2></div>
+        <div class="body-copy fade-in">
+          <p>Менеджер смены может отлично знать, как собирать и продавать сэндвичи, но в одиночку за день достигнуть плановых показателей не получится. Поэтому главная задача менеджера — организовать работу команды.</p>
+          <p>Чтобы команда работала слаженно, каждый должен понимать свою роль. Для этого ответь на вопросы:</p>
+        </div>
+        <div class="question-stack fade-in">
+          <div><span>01</span><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p></div>
+          <div><span>02</span><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p></div>
+          <div><span>03</span><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p></div>
+        </div>
+
+        <div class="calculation-card fade-in">
+          <p class="eyebrow">Пример расчета для кассира:</p>
+          <p>У тебя на смене 1 кассир. Нужно заработать 202 000 рублей. Доля продаж в Digital-каналах составляет 84% (эту информацию ты ищешь в дашборде). Значит, кассир должен продать оставшиеся 16% выручки:</p>
+          <div class="formula"><span>202 000</span><i>×</i><span>16 / 100</span><i>=</i><b>32 320 ₽</b></div>
+          <p>202 000 × 16 / 100 = 32 320 рублей за смену.</p>
+          <p>Если смена длится 8 часов, то каждый час нужно продавать примерно на 4040 рублей.</p>
+        </div>
+
+        <div class="quiz-card fade-in" id="calc-quiz">
+          <div class="quiz-top"><span>Практика</span><b>01</b></div>
+          <h2>Рассчитай цель кассира</h2>
+          <p>Выручка за смену — 150 000 рублей, доля кассира — 20%. Какая цель кассира?</p>
+          <div class="choice-grid" role="group" aria-label="Варианты ответа">
+            <button type="button" onclick="answerChoice(this, false, 'calc-feedback')">20 000 ₽</button>
+            <button type="button" onclick="answerChoice(this, true, 'calc-feedback')">30 000 ₽</button>
+            <button type="button" onclick="answerChoice(this, false, 'calc-feedback')">35 000 ₽</button>
+          </div>
+          <div class="feedback-box" id="calc-feedback" aria-live="polite"></div>
+        </div>
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('smart')">Сделать цель точной <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-smart">
+      <header class="chapter-hero chapter-hero-red">
+        <div class="content-wrap">
+          <span class="chapter-index">03 / 07</span>
+          <p class="eyebrow">Постановка целей по SMART</p>
+          <h1>Цель, которую<br>можно выполнить.</h1>
+          <p class="chapter-lead">Проверим цель на конкретность, измеримость, достижимость, релевантность и срок.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="section-title fade-in"><h2>Как конкретизировать цель на смену</h2></div>
+        <div class="smart-intro fade-in"><p>Цели для команды и каждого сотрудника нужно ставить по принципу SMART. Нажми на букву, чтобы увидеть, что именно она проверяет.</p></div>
+        <aside class="ps-note fade-in"><span>P.S.</span><div><b>5–10 минут сейчас экономят время в смене</b><p>За эти минуты менеджер заполняет цели ресторана, имена сотрудников, зоны и персональные задачи — новичку может потребоваться немного больше, и это нормально.</p><p><strong>Что это даёт:</strong> меньше повторных объяснений, остановок и срочных перераспределений в середине смены. Каждый заранее понимает свою роль, а менеджер видит, складываются ли цели в общий результат.</p></div></aside>
+        <div class="smart-grid fade-in">
+          <button type="button" class="smart-card active" onclick="selectSmart(this, 0)"><b>S</b><span>Specific</span><small>Конкретной</small></button>
+          <button type="button" class="smart-card" onclick="selectSmart(this, 1)"><b>M</b><span>Measurable</span><small>Измеримой</small></button>
+          <button type="button" class="smart-card" onclick="selectSmart(this, 2)"><b>A</b><span>Achievable</span><small>Достижимой</small></button>
+          <button type="button" class="smart-card" onclick="selectSmart(this, 3)"><b>R</b><span>Relevant</span><small>Релевантной (соответствующей общей цели)</small></button>
+          <button type="button" class="smart-card" onclick="selectSmart(this, 4)"><b>T</b><span>Time-bound</span><small>Ограниченной во времени</small></button>
+        </div>
+        <div class="smart-detail fade-in" id="smart-detail" aria-live="polite">
+          <span>S · Specific</span><p>Цель называет конкретный результат и не оставляет места разным трактовкам.</p>
+        </div>
+        <div class="quote-card fade-in">
+          <p class="eyebrow">Пример правильной цели по SMART:</p>
+          <blockquote>«За 9 часов смены заработать 202 000 рублей выручки, продать 155 новинок и не получить ни одного негативного отзыва».</blockquote>
+        </div>
+
+        <div class="compare-card fade-in">
+          <div class="compare-head"><span>Сравни формулировки</span><div><button class="audio-btn" type="button" onclick="speakText('good-goal')" aria-label="Прослушать правильную формулировку">▶ Слушать</button></div></div>
+          <div class="compare-grid">
+            <div class="compare-good"><small>Пример правильной постановки:</small><p id="good-goal">«Азамат, обычно ты продаешь 10 пирожков с вишней с 9:00 до 11:00. Попробуй сегодня побить рекорд: продай 15. Предлагай пирожок к каждому заказу кофе. У тебя всё получится! За выполнение — мороженое с меня».</p><button class="smart-reveal-btn" type="button" onclick="toggleSmartBreakdown()">Разобрать эту цель по SMART <span>＋</span></button></div>
+            <div class="compare-bad"><small>Неправильно:</small><p>«Азамат, сегодня нужно увеличить продажи пирожков с вишней».</p></div>
+          </div>
+        </div>
+
+        <div class="smart-breakdown smart-breakdown-hidden fade-in" id="smart-breakdown">
+          <p class="eyebrow">Разбор примера по SMART:</p>
+          <div><b>S</b><span><strong>Конкретика:</strong> продажи пирожков с вишней.</span></div>
+          <div><b>M</b><span><strong>Измеримость:</strong> 10+5=15.</span></div>
+          <div><b>A</b><span><strong>Достижимость:</strong> на 5 больше, чем обычно.</span></div>
+          <div><b>R</b><span><strong>Релевантность:</strong> увеличение чека ресторана.</span></div>
+          <div><b>T</b><span><strong>Ограничение по времени:</strong> с 9:00 до 11:00.</span></div>
+        </div>
+
+        <div class="quiz-card fade-in">
+          <div class="quiz-top"><span>Практика</span><b>02</b></div>
+          <h2>Переформулируй цель «Увеличить продажи» по SMART</h2>
+          <p>Заполни все пять опор — из них получится готовая формулировка.</p>
+          <div class="smart-builder">
+          <label><span>S · Что продаём?</span><input id="smart-s" type="text" placeholder="Например: пирожки с вишней"></label>
+            <label><span>M · Сколько?</span><input id="smart-m" type="text" placeholder="Например: 15 штук"></label>
+            <label><span>A · Почему достижимо?</span><input id="smart-a" type="text" placeholder="Например: обычно сотрудник продаёт 10"></label>
+            <label><span>R · На какую общую цель влияет?</span><input id="smart-r" type="text" placeholder="Например: увеличит средний чек"></label>
+            <label><span>T · К какому времени?</span><input id="smart-t" type="text" placeholder="Например: с 9:00 до 11:00"></label>
+          </div>
+          <button class="btn-check" type="button" onclick="checkSmartBuilder()">Проверить формулировку</button>
+          <div class="feedback-box" id="smart-feedback" aria-live="polite"></div>
+        </div>
+        <div class="smart-checklist-bridge fade-in"><b>SMART готов. Теперь соберём всё в один алгоритм.</b><span>Итоговый чек-лист поможет не забыть вклад сотрудника, его возможности, способ достижения и проверку общей цели.</span></div>
+        <div class="section-title fade-in"><h2>Как ставить цели сотрудникам, чтобы учесть всё?</h2></div>
+        <ol class="step-list fade-in">
+          <li><span>1</span><div><h3>Определи, кто из сотрудников и как именно должен повлиять на достижение цели.</h3><p>Пример: Кассиры могут работать со средним чеком, предлагая горячий пирожок с вишней к кофе. Сотрудник на бройлере – следить за сигналами PHU и вовремя готовить котлеты.</p></div></li>
+          <li><span>2</span><div><h3>Учти реальные возможности сотрудника.</h3><p>Посмотри, какую норму обычно выполняет этот сотрудник в пик. Например: менее опытный кассир продает 10 пирожков с вишней, опытный – 25.</p></div></li>
+          <li><span>3</span><div><h3>Сформулируй индивидуальные амбициозные, но достижимые цели.</h3><p>Пример: Нужно продать 50 пирожков с вишней и увеличить средний чек до 380 руб. Тогда:</p><p>Неопытному кассиру: цель — 15 пирожков с вишней (на 5 больше нормы) и средний чек 360 руб.</p><p>Опытному кассиру: цель — 35 пирожков с вишней (на 10 больше) и средний чек 400 руб.</p></div></li>
+          <li><span>4</span><div><h3>Проверь себя.</h3><p>Если все сотрудники выполнят свои индивидуальные цели, будет ли выполнена общая цель на смену?</p></div></li>
+          <li><span>5</span><div><h3>Озвучь цель по SMART для каждого сотрудника и подскажи, как её достичь.</h3></div></li>
+        </ol>
+        <div class="smart-next-bridge fade-in"><b>Следом проверим понимание задачи.</b><span>Сотрудник должен сам пересказать цель — так менеджер увидит, одинаково ли они поняли ожидаемый результат.</span></div>
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('understanding')">Проверить понимание <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-understanding">
+      <header class="chapter-hero chapter-hero-yellow">
+        <div class="content-wrap">
+          <span class="chapter-index">04 / 07</span>
+          <p class="eyebrow">Проверка понимания задач</p>
+          <h1>Не спрашивай<br>«Всё понятно?»</h1>
+          <p class="chapter-lead">Дай сотруднику самому пересказать цель — так ты увидишь, что именно он услышал.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="section-title fade-in"><h2>Как убедиться, что сотрудники усвоили задачи</h2></div>
+        <div class="body-copy fade-in"><p>Когда расскажешь цель, попроси сотрудника пересказать:</p></div>
+        <div class="understanding-checklist fade-in" id="understanding-list">
+          <label><input type="checkbox"><span><b>1</b>какая цель, сколько и чего нужно успеть;</span></label>
+          <label><input type="checkbox"><span><b>2</b>что можно делать, чтобы её достичь;</span></label>
+          <label><input type="checkbox"><span><b>3</b>для чего нужна эта цель;</span></label>
+          <label><input type="checkbox"><span><b>4</b>к какому времени нужно достичь цель;</span></label>
+          <label><input type="checkbox"><span><b>5</b>готов ли он её выполнять.</span></label>
+        </div>
+
+        <div class="dialogue-card fade-in">
+          <div class="manager-avatar" aria-hidden="true">М</div>
+          <div><small>Пример вопроса:</small><p id="madina-script">«Мадина, повтори, пожалуйста, что тебе нужно сделать и к какому времени? Как ты поняла, что нужно, чтобы это сделать? Готова выполнить?»</p><button class="audio-btn" type="button" onclick="speakText('madina-script')">▶ Прослушать пример</button></div>
+        </div>
+
+        <div class="bridge-note fade-in"><span>Проверка понимания — это первый шаг контроля. Дальше менеджер наблюдает, анализирует и даёт обратную связь, чтобы сотрудник мог двигаться к цели.</span></div>
+
+        <div class="mini-infographic fade-in">
+          <div><span>👁</span><b>Наблюдение</b><small>Что происходит?</small></div><i>→</i>
+          <div><span>◎</span><b>Анализ</b><small>Почему так?</small></div><i>→</i>
+          <div><span>↗</span><b>Обратная связь</b><small>Что сделать дальше?</small></div>
+        </div>
+        <div class="understanding-next fade-in"><b>Следующий шаг — контроль в смене</b><span>Когда сотрудник понял задачу, менеджер проверяет её выполнение по ходу работы и помогает вернуть результат к плану.</span></div>
+
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('control')">Управлять в течение смены <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-control">
+      <header class="chapter-hero chapter-hero-dark">
+        <div class="content-wrap">
+          <span class="chapter-index">05 / 07</span>
+          <p class="eyebrow">Управление достижением целей</p>
+          <h1>Контроль нужен,<br>чтобы помочь.</h1>
+          <p class="chapter-lead">Сверяй план каждые 30 минут, находи причину отклонения и корректируй действие.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="section-title fade-in"><h2>Как контролировать достижение целей в течение смены</h2></div>
+        <div class="body-copy fade-in">
+          <p>Опытные менеджеры знают: достижением целей нужно управлять. Регулярно следи, чтобы каждый сотрудник приближался к плану.</p>
+        </div>
+        <div class="control-bridge fade-in"><p class="eyebrow">Инструменты контроля</p><p><strong>Бланк получасовых продаж</strong> и <strong>данные по продажам</strong> дают тебе факт. Сверяй его с планом каждые 30 минут — так запускается схема: цель → контроль каждые 30 минут → отклонение → коррекция.</p></div>
+        <div class="control-example-bridge fade-in"><b>Как это выглядит в работе?</b><span>Возьми один показатель и проверь его в контрольной точке — так цифра превращается в решение.</span></div>
+        <div class="examples-card fade-in">
+          <h3>Пример контроля:</h3>
+          <p>Если кассиру за смену нужно сделать 80 000 руб., значит, каждые полчаса он должен делать примерно 5 000 руб. Проверяй это.</p>
+        </div>
+
+        <div class="section-title fade-in"><h2>Что делать, если цели не достигаются?</h2></div>
+        <div class="body-copy fade-in"><p>Если через 1–2 часа видно отставание, разберись в причинах.</p></div>
+        <div class="reason-grid fade-in">
+          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">?</span><span><b>Сотрудник не понимает задачу.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p><strong>Признак:</strong> пересказывает цель неверно.</p><p><strong>Решение:</strong> объясни цель ещё раз и попроси повторить.</p></div></article>
+          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">↗</span><span><b>Сотрудник понимает, но не получается выполнить.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p>Спроси, <strong>в чём сложность.</strong> Возможно, нужен другой инструмент (например, использовать треугольник продаж, а не один скрипт).</p><p><strong>Решение:</strong> предложи новый план, убери помехи (соус стоит далеко, скрипт сложный и т.п.).</p></div></article>
+          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">◷</span><span><b>Сотрудник устал.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p>Спроси, <strong>как он себя чувствует.</strong></p><p><strong>Решение:</strong> дай отдохнуть до пика, скорректируй распределение задач.</p></div></article>
+          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">☹</span><span><b>Сотрудник недружелюбен с гостями.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p><strong>Понаблюдай:</strong> смотрит ли он на гостя, использует ли яркие описания блюд.</p><p>Решение: дай корректирующую обратную связь наедине, покажи, как правильно общаться и предлагать.</p></div></article>
+        </div>
+
+        <div class="quiz-card fade-in">
+          <div class="quiz-top"><span>Ситуация</span><b>03</b></div>
+          <h2>Через 2 часа кассир продал только 2000 из 5000 рублей. Твои действия?</h2>
+          <div class="choice-list">
+            <button type="button" onclick="answerChoice(this, false, 'control-feedback')">Сделать замечание при всей команде и потребовать ускориться</button>
+            <button type="button" onclick="answerChoice(this, true, 'control-feedback')">Сверить понимание цели, выяснить причину и вместе выбрать корректирующее действие</button>
+            <button type="button" onclick="answerChoice(this, false, 'control-feedback')">Подождать до конца смены — ещё рано вмешиваться</button>
+          </div>
+          <div class="feedback-box" id="control-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="control-errors-bridge fade-in"><b>Регулярная проверка нужна не для отчётности.</b><span>Она помогает заметить отклонение вовремя. Если контроль пропустить или проводить формально, появляются ошибки — разберём их дальше.</span></div>
+
+        <div class="section-title fade-in"><h2>Ошибки при контроле, которых нужно избегать</h2></div>
+        <div class="mistake-grid fade-in">
+          <div><span>01</span><h3>Формальный контроль.</h3><p>Заполняешь чек-лист, но не даёшь обратную связь команде. Ситуация не меняется.</p></div>
+          <div><span>02</span><h3>Контроль ошибок.</h3><p>Даёшь только негативную обратную связь. Сотрудник теряет мотивацию и может уволиться.</p></div>
+          <div><span>03</span><h3>Нет контрольных точек.</h3><p>Поставил цель в начале смены и забыл. Сотрудник не знает, как идёт, и может потерять ориентир.</p></div>
+        </div>
+
+        <div class="section-title fade-in"><h2>Когда усиливать или ослаблять контроль</h2></div>
+        <div class="control-balance fade-in">
+          <div class="more-control"><span>＋</span><h3>Усиливай контроль, если:</h3><p>сотрудник выполняет новую задачу (ты пока не знаешь его скорость и качество);</p><p>задача очень важная или срочная (это снижает риск ошибок).</p></div>
+          <div class="less-control"><span>−</span><h3>Ослабляй контроль, если:</h3><p>сотрудник опытный и мотивированный (излишний контроль раздражает);</p><p>ты доверяешь ему. В пики такие сотрудники — твоя главная опора.</p></div>
+        </div>
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('finish')">Подвести итоги смены <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-finish">
+      <header class="chapter-hero chapter-hero-green">
+        <div class="content-wrap">
+          <span class="chapter-index">06 / 07</span>
+          <p class="eyebrow">Завершение смены</p>
+          <h1>Итог — это начало<br>следующей смены.</h1>
+          <p class="chapter-lead">Подведи результат, признай вклад команды и преврати причины отклонений в план действий.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="reflection-card fade-in">
+          <p class="eyebrow">Согласен или поспоришь?</p>
+          <h2>Многие менеджеры считают: «Если цели не достигнуты, значит, сотрудники плохо работали».</h2>
+          <p>А теперь вопрос: так ли это?</p>
+          <div class="reflection-actions">
+            <button type="button" onclick="answerReflection('yes')">✓ Да, это их ответственность</button>
+            <button type="button" onclick="answerReflection('no')">✕ Нет, скорее всего, я что-то упустил в управлении</button>
+          </div>
+          <div class="reflection-feedback" id="reflection-feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="section-title fade-in"><h2>Что делать в конце смены</h2></div>
+        <div class="body-copy fade-in"><p>Проверь итоги.</p><p>Если каждый сотрудник достиг своей цели, значит, и общая цель выполнена.</p></div>
+        <div class="finish-paths fade-in">
+          <article class="success-path"><span>Цель достигнута</span><h3>Сообщи результат команде.</h3><p>Поблагодари, выдели лучших, вручи карточки признания.</p></article>
+          <article class="review-path"><span>Цель не достигнута</span><h3>Если цель не достигнута – ищи причины.</h3><ul><li>Меньше заказов, чем ожидали?</li><li>Нереалистичные индивидуальные цели?</li><li>ЧБРы не выполняли задачи?</li></ul><p>Запиши причины и обсуди план действий с директором.</p></article>
+        </div>
+        <div class="team-review fade-in">
+          <div><span>01</span><p>Спроси у команды, что было трудным, а что лёгким.</p></div>
+          <div><span>02</span><p>Запиши сложные моменты, подумай, как помочь в следующий раз.</p></div>
+          <div><span>03</span><p>Дай обратную связь каждому.</p></div>
+          <div><span>04</span><p>Публично похвали тех, кто справился. Это мотивирует и их, и остальных.</p></div>
+        </div>
+        <div class="next-row"><button class="btn-primary" type="button" onclick="navigateTo('summary')">Собрать главное <span>→</span></button></div>
+      </div>
+    </section>
+
+    <section class="page" id="page-summary">
+      <header class="chapter-hero chapter-hero-summary">
+        <div class="content-wrap">
+          <span class="chapter-index">07 / 07</span>
+          <p class="eyebrow">Завершение курса</p>
+          <h1>Управляй не цифрами.<br>Управляй действиями.</h1>
+          <p class="chapter-lead">Восемь принципов, которые превращают цель ресторана в результат команды.</p>
+        </div>
+      </header>
+      <div class="content-wrap lesson-body">
+        <div class="section-title fade-in"><span>Главное</span><h2>Главные выводы курса</h2></div>
+        <div class="takeaway-list fade-in">
+          <article><span>01</span><p>Чтобы правильно поставить цели, изучи результаты прошлой смены.</p></article>
+          <article><span>02</span><p>Пользуйся принципом SMART для целей всей команды и каждого сотрудника.</p></article>
+          <article><span>03</span><p>Проверь себя: если все выполнят свои задачи, будет ли достигнута общая цель?</p></article>
+          <article><span>04</span><p>Убедись, что каждый понял свою задачу.</p></article>
+          <article><span>05</span><p>Каждые полчаса проверяй, как идёт выполнение целей.</p></article>
+          <article><span>06</span><p>Если что-то идёт не так – корректируй: переставляй сотрудников, уточняй цели, подбадривай, сообщай промежуточные результаты.</p></article>
+          <article><span>07</span><p>Правильная постановка целей и грамотный контроль – твои главные инструменты управления.</p></article>
+          <article><span>08</span><p>Команда должна знать о своих промежуточных результатах и результатах ресторана – это повышает мотивацию и настраивает на общий успех.</p></article>
+        </div>
+        <div class="resource-panel fade-in">
+          <div><p class="eyebrow">Забери с собой</p><h2>Два инструмента для следующей смены</h2></div>
+          <div class="resource-buttons"><button class="btn-secondary" type="button" onclick="downloadGoalTemplate()">↓ Шаблон постановки целей</button><button class="btn-secondary" type="button" onclick="downloadControlChecklist()">↓ Чек-лист контроля</button><button class="btn-secondary" type="button" onclick="printChecklist()">⎙ 5 вопросов для печати</button></div>
+        </div>
+        <div class="completion-card fade-in">
+          <span class="completion-mark">✓</span><div><h2>Ты прошёл весь маршрут</h2><p>Зафиксируй завершение курса и примени чек-лист уже на следующей смене.</p></div><button class="btn-primary" type="button" onclick="completeCourse()">Завершить курс</button>
+        </div>
+        <div class="completion-panel" id="completion-panel" role="status"><b>Курс завершён.</b> Результат сохранён. Можно вернуться к любой главе с главной страницы.</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
