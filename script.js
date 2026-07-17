@@ -11,8 +11,8 @@ const CHAPTER_NAMES = {
   summary: 'Главное по теме'
 };
 
-const PROGRESS_KEY = 'daily_goals_course_progress_v7';
-const PROGRESS_VERSION = 7;
+const PROGRESS_KEY = 'daily_goals_course_progress_v8';
+const PROGRESS_VERSION = 8;
 let currentPage = 'home';
 let unlockedChapters = 1;
 let fadeObserver;
