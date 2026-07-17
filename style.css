@@ -440,6 +440,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline-colo
 .hero-content h1 { max-width: 570px; margin-bottom: 22px; font-size: clamp(2.8rem, 5.4vw, 5rem); font-weight: 800; line-height: .95; letter-spacing: -.055em; }
 .hero-content p { max-width: 445px; color: #4b318d; font-size: clamp(1rem, 1.6vw, 1.22rem); font-weight: 600; opacity: 1; }
 .hero-entry { color: #432394; }.hero-entry em { background: color-mix(in srgb, #432394 12%, transparent); }
+#page-home .hero-content h1 { color: #3f238c !important; }
+#page-home .hero-content p { color: #4b318d !important; }
 .photo-mark { border-color: currentColor; }
 
 .home-content { padding-top: 4.5rem; }.home-heading { margin: 0 0 2.25rem; }
