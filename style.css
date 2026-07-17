@@ -490,7 +490,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline-colo
 .step-list > li > span { align-self: start; margin-top: 1.625rem; }
 
 /* Контрастные обложки и лёгкие схемы для трека «Управление рестораном». */
-.hero-content h1, .hero-content p,
 .chapter-hero-orange h1, .chapter-hero-orange .chapter-lead,
 .chapter-hero-red h1, .chapter-hero-red .chapter-lead,
 .chapter-hero-dark h1, .chapter-hero-dark .chapter-lead,
