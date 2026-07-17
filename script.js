@@ -211,14 +211,26 @@ function answerReflection(answer) {
     : '<strong>Ответственность сотрудника важна, но менеджер влияет на условия выполнения.</strong><br>А теперь представьте, что по-настоящему эффективный менеджер в этой ситуации скажет: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».';
 }
 
-function speakText(elementId) {
-  const element = document.getElementById(elementId);
-  if (!element || !('speechSynthesis' in window)) return;
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(element.textContent.trim());
-  utterance.lang = 'ru-RU';
-  utterance.rate = 0.95;
-  window.speechSynthesis.speak(utterance);
+function toggleAudio(audioId, button) {
+  const audio = document.getElementById(audioId);
+  if (!audio || !button) return;
+
+  const resetButton = () => {
+    button.textContent = '▶ Прослушать пример';
+    button.setAttribute('aria-pressed', 'false');
+  };
+
+  if (!audio.paused) {
+    audio.pause();
+    resetButton();
+    return;
+  }
+
+  audio.play().then(() => {
+    button.textContent = '❚❚ Остановить аудио';
+    button.setAttribute('aria-pressed', 'true');
+  }).catch(resetButton);
+  audio.onended = resetButton;
 }
 
 function downloadText(filename, content) {
