@@ -11,8 +11,8 @@ const CHAPTER_NAMES = {
   summary: 'Главное по теме'
 };
 
-const PROGRESS_KEY = 'daily_goals_course_progress_v3';
-const PROGRESS_VERSION = 3;
+const PROGRESS_KEY = 'daily_goals_course_progress_v7';
+const PROGRESS_VERSION = 7;
 let currentPage = 'home';
 let unlockedChapters = 1;
 let fadeObserver;
@@ -33,15 +33,17 @@ function navigateTo(pageId) {
   document.getElementById('nav-progress').textContent = chapterIndex >= 0 ? `${chapterIndex + 1} / ${CHAPTER_ORDER.length}` : '';
   document.getElementById('progress-bar').style.width = chapterIndex >= 0 ? `${Math.round((chapterIndex + 1) / CHAPTER_ORDER.length * 100)}%` : '0%';
 
-  if (chapterIndex >= 0) {
-    const nextUnlocked = Math.min(chapterIndex + 2, CHAPTER_ORDER.length);
-    if (nextUnlocked > unlockedChapters) {
-      unlockedChapters = nextUnlocked;
-      saveProgress();
-    }
-  }
   applyHomeLocks();
   setTimeout(initFadeIn, 30);
+}
+
+function completeChapter(completedPageId, nextPageId) {
+  const completedIndex = CHAPTER_ORDER.indexOf(completedPageId);
+  if (completedIndex < 0 || currentPage !== completedPageId || completedIndex >= unlockedChapters) return;
+
+  unlockedChapters = Math.max(unlockedChapters, Math.min(completedIndex + 2, CHAPTER_ORDER.length));
+  saveProgress();
+  navigateTo(nextPageId);
 }
 
 function initFadeIn() {
@@ -67,7 +69,13 @@ function initFadeIn() {
 
 function applyHomeLocks() {
   CHAPTER_ORDER.forEach((chapter, index) => {
-    document.getElementById(`home-card-${index + 1}`)?.classList.toggle('locked', index >= unlockedChapters);
+    const card = document.getElementById(`home-card-${index + 1}`);
+    if (!card) return;
+    const isLocked = index >= unlockedChapters;
+    card.classList.toggle('locked', isLocked);
+    card.disabled = isLocked;
+    card.setAttribute('aria-disabled', String(isLocked));
+    card.tabIndex = isLocked ? -1 : 0;
   });
 }
 
@@ -164,6 +172,14 @@ function toggleSmartBreakdown() {
   button.classList.toggle('active', isOpen);
   button.innerHTML = isOpen ? 'Скрыть разбор SMART <span>−</span>' : 'Разобрать эту цель по SMART <span>＋</span>';
   if (isOpen) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function togglePsNote() {
+  const note = document.getElementById('ps-note');
+  const button = note?.querySelector('.ps-note-toggle');
+  if (!note || !button) return;
+  const isOpen = note.classList.toggle('open');
+  button.setAttribute('aria-expanded', String(isOpen));
 }
 
 function checkSmartBuilder() {
