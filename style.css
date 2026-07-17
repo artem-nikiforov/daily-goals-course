@@ -654,13 +654,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline-colo
 .course-route-heading span { color: var(--ku-text-soft); line-height: 1.45; }
 .course-route-list { position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .35rem; }
 .course-route-list::before { content: ""; position: absolute; top: 1.1rem; right: 7%; left: 7%; height: 2px; background: var(--ku-divider); }
-.course-route-item { position: relative; z-index: 1; display: grid; justify-items: center; gap: .55rem; min-height: 5.4rem; padding: 0 .25rem; border: 0; background: transparent; color: var(--ku-text); cursor: pointer; font: inherit; text-align: center; }
+.course-route-item { position: relative; z-index: 1; display: grid; justify-items: center; gap: .55rem; min-height: 5.4rem; padding: 0 .25rem; border: 0; background: transparent; color: var(--ku-text); cursor: default; font: inherit; text-align: center; }
 .course-route-item b { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: .22rem solid var(--ku-bg); border-radius: var(--ku-radius-pill); background: var(--ku-brand); color: var(--ku-brand-on); font-size: .68rem; box-shadow: 0 0 0 1px var(--ku-brand); }
 .course-route-item span { font-size: .76rem; font-weight: 700; line-height: 1.2; }
 .course-route-item em { display: inline-flex; padding: .2rem .5rem; border-radius: var(--ku-radius-pill); background: var(--ku-brand-soft); color: var(--ku-brand-strong); font-size: .62rem; font-style: normal; font-weight: 800; line-height: 1; text-transform: uppercase; }
 .course-route-item.locked { cursor: default; color: var(--ku-text-muted); }
 .course-route-item.locked b { border-color: var(--ku-bg); background: var(--ku-surface-2); color: var(--ku-text-muted); box-shadow: 0 0 0 1px var(--ku-border); }
-.course-route-item:not(.locked):hover span { color: var(--ku-brand-strong); }
 
 /* Вопросы сразу дают ориентир для ответа и действие. */
 .question-stack > div > div { display: grid; gap: .8rem; }

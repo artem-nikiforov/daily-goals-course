@@ -7,7 +7,7 @@
   <meta name="description" content="Интерактивный курс о постановке целей и управлении их достижением в течение дня.">
   <title>Как управлять достижением целей на день</title>
   <link rel="stylesheet" href="css/kuds.css?v=4">
-  <link rel="stylesheet" href="style.css?v=18">
+  <link rel="stylesheet" href="style.css?v=19">
 </head>
 <body class="ku-prose">
   <nav id="top-nav" aria-label="Навигация по курсу">
@@ -28,7 +28,7 @@
         <div class="hero-content">
           <h1>Как управлять<br>достижением целей<br>на день</h1>
           <p>От общей цели ресторана — к понятным действиям каждого сотрудника.</p>
-          <button class="hero-entry" type="button" onclick="navigateTo('intro')"><span>Введение</span><em>Нажми</em><i aria-hidden="true">→</i></button>
+          <button class="hero-entry" type="button" onclick="navigateTo('intro')"><span>Начать</span><i aria-hidden="true">→</i></button>
         </div>
         <div class="hero-photo-note">
           <span class="photo-mark" aria-hidden="true">＋</span>
@@ -79,13 +79,13 @@
         <section class="course-route fade-in" aria-label="Маршрут курса">
           <div class="course-route-heading"><p>15 минут</p><h2>Что ты пройдёшь в курсе</h2><span>Пройди маршрут по шагам: следующий раздел откроется после завершения предыдущего.</span></div>
           <div class="course-route-list">
-            <button class="course-route-item active" id="route-card-1" type="button" onclick="navigateTo('intro')"><b>01</b><span>Введение</span><em>Нажми</em></button>
-            <button class="course-route-item locked" id="route-card-2" type="button" onclick="navigateTo('goals')" disabled aria-disabled="true" tabindex="-1"><b>02</b><span>Цели на смену</span></button>
-            <button class="course-route-item locked" id="route-card-3" type="button" onclick="navigateTo('smart')" disabled aria-disabled="true" tabindex="-1"><b>03</b><span>Цели по SMART</span></button>
-            <button class="course-route-item locked" id="route-card-4" type="button" onclick="navigateTo('understanding')" disabled aria-disabled="true" tabindex="-1"><b>04</b><span>Проверка понимания</span></button>
-            <button class="course-route-item locked" id="route-card-5" type="button" onclick="navigateTo('control')" disabled aria-disabled="true" tabindex="-1"><b>05</b><span>Управление в смене</span></button>
-            <button class="course-route-item locked" id="route-card-6" type="button" onclick="navigateTo('finish')" disabled aria-disabled="true" tabindex="-1"><b>06</b><span>Завершение смены</span></button>
-            <button class="course-route-item locked" id="route-card-7" type="button" onclick="navigateTo('summary')" disabled aria-disabled="true" tabindex="-1"><b>07</b><span>Главное по теме</span></button>
+            <div class="course-route-item active"><b>01</b><span>Введение</span></div>
+            <div class="course-route-item locked"><b>02</b><span>Цели на смену</span></div>
+            <div class="course-route-item locked"><b>03</b><span>Цели по SMART</span></div>
+            <div class="course-route-item locked"><b>04</b><span>Проверка понимания</span></div>
+            <div class="course-route-item locked"><b>05</b><span>Управление на смене</span></div>
+            <div class="course-route-item locked"><b>06</b><span>Завершение смены</span></div>
+            <div class="course-route-item locked"><b>07</b><span>Главное по теме</span></div>
           </div>
         </section>
         <div class="hook-card fade-in">
@@ -151,11 +151,11 @@
           <p>Чтобы команда работала слаженно, сначала переведи общий план в понятные ориентиры для каждой зоны. Ответь на вопросы ниже, а затем используй ответы, чтобы поставить сотрудникам конкретные задачи.</p>
         </div>
         <div class="question-stack fade-in">
-          <div><span>01</span><div><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p><small><b>В ответе:</b> готовность продукции, скорость сборки и отсутствие стоп-листа. <b>Что делать:</b> договорись с командой кухни, за какими показателями она следит в смене.</small></div></div>
-          <div><span>02</span><div><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p><small><b>В ответе:</b> конкретные действия в сервисе — приветствие, внимание к Гостю, точность заказа. <b>Что делать:</b> назови эти действия команде и наблюдай за ними в работе.</small></div></div>
-          <div><span>03</span><div><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p><small><b>В ответе:</b> сумма на час для каждого кассира. <b>Что делать:</b> рассчитай её из плана смены и используй как контрольную точку.</small></div></div>
+          <div><span>01</span><div><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p><small><b>Что делать:</b> договорись с командой кухни, за какими показателями она следит на смене.</small></div></div>
+          <div><span>02</span><div><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p><small><b>Что делать:</b> назови команде действия в сервисе и наблюдай за ними в работе.</small></div></div>
+          <div><span>03</span><div><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p><small><b>Что делать:</b> рассчитай сумму из плана смены и используй её как контрольную точку.</small></div></div>
         </div>
-        <div class="questions-result fade-in"><b>Ответы готовы — это основа задач для зон и сотрудников.</b><span>Теперь рассчитаем один из ориентиров: сколько должен продать кассир за смену и за час.</span></div>
+        <div class="questions-result fade-in"><b>Что делать ты теперь знаешь.</b><span>Теперь рассчитаем один из ориентиров: сколько должен продать кассир за смену и за час.</span></div>
 
         <div class="calculation-card fade-in">
           <p class="eyebrow">Пример расчета для кассира:</p>
@@ -408,6 +408,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
