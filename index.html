@@ -7,7 +7,7 @@
   <meta name="description" content="Интерактивный курс о постановке целей и управлении их достижением в течение дня.">
   <title>Как управлять достижением целей на день</title>
   <link rel="stylesheet" href="css/kuds.css?v=4">
-  <link rel="stylesheet" href="style.css?v=16">
+  <link rel="stylesheet" href="style.css?v=17">
 </head>
 <body class="ku-prose">
   <nav id="top-nav" aria-label="Навигация по курсу">
@@ -28,7 +28,6 @@
         <div class="hero-content">
           <h1>Как управлять<br>достижением целей<br>на день</h1>
           <p>От общей цели ресторана — к понятным действиям каждого сотрудника.</p>
-          <button class="btn-primary ku-btn primary hero-start" type="button" onclick="navigateTo('intro')">Начать курс <span aria-hidden="true">→</span></button>
         </div>
         <div class="hero-photo-note">
           <span class="photo-mark" aria-hidden="true">＋</span>
@@ -36,7 +35,7 @@
         </div>
       </div>
 
-      <div class="home-content">
+      <div class="home-content" hidden aria-hidden="true">
         <div class="home-heading fade-in">
           <h2>Сначала поставим цель.<br>Затем поможем команде её достичь.</h2>
         </div>
@@ -76,6 +75,18 @@
         </div>
       </header>
       <div class="content-wrap lesson-body">
+        <section class="course-route fade-in" aria-label="Маршрут курса">
+          <div class="course-route-heading"><p>15 минут</p><h2>Что ты пройдёшь в курсе</h2><span>Пройди маршрут по шагам: следующий раздел откроется после завершения предыдущего.</span></div>
+          <div class="course-route-list">
+            <button class="course-route-item active" id="route-card-1" type="button" onclick="navigateTo('intro')"><b>01</b><span>Введение</span><em>Нажми</em></button>
+            <button class="course-route-item locked" id="route-card-2" type="button" onclick="navigateTo('goals')" disabled aria-disabled="true" tabindex="-1"><b>02</b><span>Цели на смену</span></button>
+            <button class="course-route-item locked" id="route-card-3" type="button" onclick="navigateTo('smart')" disabled aria-disabled="true" tabindex="-1"><b>03</b><span>Цели по SMART</span></button>
+            <button class="course-route-item locked" id="route-card-4" type="button" onclick="navigateTo('understanding')" disabled aria-disabled="true" tabindex="-1"><b>04</b><span>Проверка понимания</span></button>
+            <button class="course-route-item locked" id="route-card-5" type="button" onclick="navigateTo('control')" disabled aria-disabled="true" tabindex="-1"><b>05</b><span>Управление в смене</span></button>
+            <button class="course-route-item locked" id="route-card-6" type="button" onclick="navigateTo('finish')" disabled aria-disabled="true" tabindex="-1"><b>06</b><span>Завершение смены</span></button>
+            <button class="course-route-item locked" id="route-card-7" type="button" onclick="navigateTo('summary')" disabled aria-disabled="true" tabindex="-1"><b>07</b><span>Главное по теме</span></button>
+          </div>
+        </section>
         <div class="hook-card fade-in">
           <h2>Перед первой сменой разберись в трёх вещах</h2>
           <div class="shift-signals" aria-label="Три опоры для первой смены">
@@ -136,13 +147,14 @@
         <div class="section-title fade-in"><h2>Как из общей цели поставить задачу каждому сотруднику смены</h2></div>
         <div class="body-copy fade-in">
           <p>Ты можешь отлично знать, как собирать и продавать сэндвичи, но в одиночку за день достигнуть плановых показателей не получится. Поэтому важно организовать работу команды.</p>
-          <p>Чтобы команда работала слаженно, каждый должен понимать свою роль. Для этого ответь на вопросы:</p>
+          <p>Чтобы команда работала слаженно, сначала переведи общий план в понятные ориентиры для каждой зоны. Ответь на вопросы ниже, а затем используй ответы, чтобы поставить сотрудникам конкретные задачи.</p>
         </div>
         <div class="question-stack fade-in">
-          <div><span>01</span><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p></div>
-          <div><span>02</span><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p></div>
-          <div><span>03</span><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p></div>
+          <div><span>01</span><div><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p><small><b>В ответе:</b> готовность продукции, скорость сборки и отсутствие стоп-листа. <b>Что делать:</b> договорись с командой кухни, за какими показателями она следит в смене.</small></div></div>
+          <div><span>02</span><div><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p><small><b>В ответе:</b> конкретные действия в сервисе — приветствие, внимание к Гостю, точность заказа. <b>Что делать:</b> назови эти действия команде и наблюдай за ними в работе.</small></div></div>
+          <div><span>03</span><div><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p><small><b>В ответе:</b> сумма на час для каждого кассира. <b>Что делать:</b> рассчитай её из плана смены и используй как контрольную точку.</small></div></div>
         </div>
+        <div class="questions-result fade-in"><b>Ответы готовы — это основа задач для зон и сотрудников.</b><span>Теперь рассчитаем один из ориентиров: сколько должен продать кассир за смену и за час.</span></div>
 
         <div class="calculation-card fade-in">
           <p class="eyebrow">Пример расчета для кассира:</p>
@@ -179,12 +191,11 @@
       <div class="content-wrap lesson-body">
         <div class="section-title fade-in"><h2>Как конкретизировать цель на смену</h2></div>
         <div class="smart-intro fade-in"><p>Цели для команды и каждого сотрудника нужно ставить по принципу SMART. Нажми на букву, чтобы увидеть, что именно она проверяет.</p></div>
-        <aside class="ps-note fade-in" id="ps-note"><button class="ps-note-toggle" type="button" onclick="togglePsNote()" aria-expanded="false" aria-controls="ps-note-content"><span>P.S.</span><b>5–10 минут сейчас экономят время в смене</b><i aria-hidden="true">＋</i></button><div class="ps-note-content" id="ps-note-content"><p>За эти минуты ты заполняешь цели ресторана, имена сотрудников, зоны и персональные задачи — новичку может потребоваться немного больше, и это нормально.</p><p><strong>Что это даёт:</strong> меньше повторных объяснений, остановок и срочных перераспределений в середине смены. Каждый заранее понимает свою роль, а ты видишь, складываются ли цели в общий результат.</p></div></aside>
         <div class="smart-grid fade-in">
           <button type="button" class="smart-card active" onclick="selectSmart(this, 0)"><b>S</b><span>Specific</span><small>Конкретной</small></button>
           <button type="button" class="smart-card" onclick="selectSmart(this, 1)"><b>M</b><span>Measurable</span><small>Измеримой</small></button>
           <button type="button" class="smart-card" onclick="selectSmart(this, 2)"><b>A</b><span>Achievable</span><small>Достижимой</small></button>
-          <button type="button" class="smart-card" onclick="selectSmart(this, 3)"><b>R</b><span>Relevant</span><small>Релевантной (соответствующей общей цели)</small></button>
+          <button type="button" class="smart-card" onclick="selectSmart(this, 3)"><b>R</b><span>Relevant</span><small>Связана с общей целью</small></button>
           <button type="button" class="smart-card" onclick="selectSmart(this, 4)"><b>T</b><span>Time-bound</span><small>Ограниченной во времени</small></button>
         </div>
         <div class="smart-detail fade-in" id="smart-detail" aria-live="polite">
@@ -226,7 +237,7 @@
           <li><span>2</span><div><h3>Учти реальные возможности сотрудника.</h3><p>Посмотри, какую норму обычно выполняет этот сотрудник в пик. Например: менее опытный кассир продает 10 пирожков с вишней, опытный – 25.</p></div></li>
           <li><span>3</span><div><h3>Сформулируй индивидуальные амбициозные, но достижимые цели.</h3><p>Пример: Нужно продать 50 пирожков с вишней и увеличить средний чек до 380 руб. Тогда:</p><p>Неопытному кассиру: цель — 15 пирожков с вишней (на 5 больше нормы) и средний чек 360 руб.</p><p>Опытному кассиру: цель — 35 пирожков с вишней (на 10 больше) и средний чек 400 руб.</p></div></li>
           <li><span>4</span><div><h3>Проверь себя.</h3><p>Если все сотрудники выполнят свои индивидуальные цели, будет ли выполнена общая цель на смену?</p></div></li>
-          <li><span>5</span><div><h3>Озвучь цель по SMART для каждого сотрудника и подскажи, как её достичь.</h3></div></li>
+          <li><span>5</span><div><h3>Озвучь цель по SMART для каждого сотрудника и подскажи, как её достичь.</h3><p>Например: «Мадина, с 17:00 до 21:00 продай 15 пирожков с вишней. Предлагай их к каждому горячему напитку — в конце сверим результат».</p></div></li>
         </ol>
         <div class="smart-next-bridge fade-in"><b>Следом проверим понимание задачи.</b><span>Сотрудник должен сам пересказать цель — так ты увидишь, одинаково ли вы поняли ожидаемый результат.</span></div>
         <div class="next-row"><button class="btn-primary" type="button" onclick="completeChapter('smart', 'understanding')">Проверить понимание <span>→</span></button></div>
@@ -293,7 +304,7 @@
           <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">?</span><span><b>Сотрудник не понимает задачу.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p><strong>Признак:</strong> пересказывает цель неверно.</p><p><strong>Решение:</strong> объясни цель ещё раз и попроси повторить.</p></div></article>
           <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">↗</span><span><b>Сотрудник понимает, но не получается выполнить.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p>Спроси, <strong>в чём сложность.</strong> Возможно, нужен другой инструмент (например, использовать треугольник продаж, а не один скрипт).</p><p><strong>Решение:</strong> предложи новый план, убери помехи (соус стоит далеко, скрипт сложный и т.п.).</p></div></article>
           <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">◷</span><span><b>Сотрудник устал.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p>Спроси, <strong>как он себя чувствует.</strong></p><p><strong>Решение:</strong> дай отдохнуть до пика, скорректируй распределение задач.</p></div></article>
-          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">☹</span><span><b>Сотрудник недружелюбен с гостями.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p><strong>Понаблюдай:</strong> смотрит ли он на гостя, использует ли яркие описания блюд.</p><p>Решение: дай корректирующую обратную связь наедине, покажи, как правильно общаться и предлагать.</p></div></article>
+          <article class="reason-card"><button type="button" onclick="toggleReason(this)"><span class="reason-icon">☹</span><span><b>Сотрудник недружелюбен с Гостями.</b><small>Нажми, чтобы увидеть решение</small></span><i>＋</i></button><div class="reason-body"><p><strong>Спроси:</strong> что мешает ему быть внимательным к Гостям и предлагать блюда.</p><p><strong>Решение:</strong> дай корректирующую обратную связь наедине, покажи, как правильно общаться и предлагать.</p></div></article>
         </div>
 
         <div class="quiz-card fade-in">
@@ -396,6 +407,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=11"></script>
+  <script src="script.js?v=12"></script>
 </body>
 </html>

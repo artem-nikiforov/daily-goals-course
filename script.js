@@ -69,13 +69,15 @@ function initFadeIn() {
 
 function applyHomeLocks() {
   CHAPTER_ORDER.forEach((chapter, index) => {
-    const card = document.getElementById(`home-card-${index + 1}`);
-    if (!card) return;
     const isLocked = index >= unlockedChapters;
-    card.classList.toggle('locked', isLocked);
-    card.disabled = isLocked;
-    card.setAttribute('aria-disabled', String(isLocked));
-    card.tabIndex = isLocked ? -1 : 0;
+    [`home-card-${index + 1}`, `route-card-${index + 1}`].forEach(id => {
+      const card = document.getElementById(id);
+      if (!card) return;
+      card.classList.toggle('locked', isLocked);
+      card.disabled = isLocked;
+      card.setAttribute('aria-disabled', String(isLocked));
+      card.tabIndex = isLocked ? -1 : 0;
+    });
   });
 }
 
@@ -162,14 +164,6 @@ function toggleSmartBreakdown() {
   if (isOpen) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function togglePsNote() {
-  const note = document.getElementById('ps-note');
-  const button = note?.querySelector('.ps-note-toggle');
-  if (!note || !button) return;
-  const isOpen = note.classList.toggle('open');
-  button.setAttribute('aria-expanded', String(isOpen));
-}
-
 function checkSmartBuilder() {
   const fields = ['smart-s', 'smart-m', 'smart-a', 'smart-r', 'smart-t'].map(id => document.getElementById(id));
   const missing = fields.filter(field => !field.value.trim());
@@ -195,8 +189,8 @@ function answerReflection(answer) {
   const feedback = document.getElementById('reflection-feedback');
   feedback.classList.add('show');
   feedback.innerHTML = answer === 'no'
-    ? '<strong>Именно так мыслит менеджер, который управляет результатом.</strong><br>А теперь представьте, что по-настоящему эффективный менеджер в этой ситуации скажет: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».'
-    : '<strong>Ответственность сотрудника важна, но менеджер влияет на условия выполнения.</strong><br>А теперь представьте, что по-настоящему эффективный менеджер в этой ситуации скажет: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».';
+    ? '<strong>Именно так мыслит тот, кто управляет сменой и результатом.</strong><br>А теперь представь, что ты скажешь: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».'
+    : '<strong>Ответственность сотрудника важна, но тот, кто управляет сменой, влияет на условия выполнения.</strong><br>А теперь представь, что ты скажешь: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».';
 }
 
 function initMadinaAudio() {
@@ -240,7 +234,7 @@ function downloadGoalTemplate() {
   downloadText('Шаблон постановки целей.txt', `ШАБЛОН ПОСТАНОВКИ ЦЕЛЕЙ НА СМЕНУ
 
 Дата: ____________________   Смена: ____________________
-Менеджер смены: _______________________________________
+Тот, кто управляет сменой: ______________________________
 
 1. ОБЩИЕ ЦЕЛИ РЕСТОРАНА
 Товарооборот: _________________________________________
@@ -277,7 +271,7 @@ function downloadControlChecklist() {
 [ ] Сотрудник понимает задачу?
 [ ] У него получается выполнить задачу?
 [ ] Сотрудник не устал?
-[ ] Сотрудник дружелюбен с гостями?
+[ ] Сотрудник дружелюбен с Гостями?
 [ ] Что мешает и какое действие нужно скорректировать?
 
 В КОНЦЕ СМЕНЫ
