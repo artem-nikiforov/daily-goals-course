@@ -11,8 +11,8 @@ const CHAPTER_NAMES = {
   summary: 'Главное по теме'
 };
 
-const PROGRESS_KEY = 'daily_goals_course_progress_v8';
-const PROGRESS_VERSION = 8;
+const PROGRESS_KEY = 'daily_goals_course_progress_v9';
+const PROGRESS_VERSION = 9;
 let currentPage = 'home';
 let unlockedChapters = 1;
 let fadeObserver;
@@ -93,19 +93,7 @@ function saveProgress() {
 }
 
 function loadProgress() {
-  let stored = '';
-  if (window.SCORM && typeof SCORM.get === 'function') {
-    try { stored = SCORM.get('cmi.suspend_data') || ''; } catch (error) {}
-  }
-  if (!stored) {
-    try { stored = localStorage.getItem(PROGRESS_KEY) || ''; } catch (error) {}
-  }
-  if (stored) {
-    try {
-      const state = JSON.parse(stored);
-      if (state.version === PROGRESS_VERSION && Number.isFinite(state.unlocked)) unlockedChapters = Math.max(1, Math.min(state.unlocked, CHAPTER_ORDER.length));
-    } catch (error) {}
-  }
+  unlockedChapters = 1;
   applyHomeLocks();
 }
 
@@ -332,5 +320,3 @@ document.addEventListener('DOMContentLoaded', () => {
   initMadinaAudio();
   navigateTo('home');
 });
-
-window.addEventListener('load', loadProgress);
