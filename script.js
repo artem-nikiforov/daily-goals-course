@@ -211,8 +211,9 @@ function answerReflection(answer) {
     : '<strong>Ответственность сотрудника важна, но менеджер влияет на условия выполнения.</strong><br>А теперь представьте, что по-настоящему эффективный менеджер в этой ситуации скажет: «Если моя команда не достигла целей — значит, я где-то недодал обратную связь, не скорректировал работу вовремя или плохо поставил задачу».';
 }
 
-function toggleAudio(audioId, button) {
-  const audio = document.getElementById(audioId);
+function initMadinaAudio() {
+  const audio = document.getElementById('madina-audio');
+  const button = document.getElementById('madina-audio-toggle');
   if (!audio || !button) return;
 
   const resetButton = () => {
@@ -220,17 +221,20 @@ function toggleAudio(audioId, button) {
     button.setAttribute('aria-pressed', 'false');
   };
 
-  if (!audio.paused) {
-    audio.pause();
-    resetButton();
-    return;
-  }
+  button.addEventListener('click', () => {
+    if (!audio.paused) {
+      audio.pause();
+      resetButton();
+      return;
+    }
 
-  audio.play().then(() => {
-    button.textContent = '❚❚ Остановить аудио';
-    button.setAttribute('aria-pressed', 'true');
-  }).catch(resetButton);
-  audio.onended = resetButton;
+    audio.play().then(() => {
+      button.textContent = '❚❚ Остановить аудио';
+      button.setAttribute('aria-pressed', 'true');
+    }).catch(resetButton);
+  });
+
+  audio.addEventListener('ended', resetButton);
 }
 
 function downloadText(filename, content) {
@@ -325,6 +329,7 @@ function completeCourse() {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadProgress();
+  initMadinaAudio();
   navigateTo('home');
 });
 
