@@ -164,19 +164,35 @@ function toggleSmartBreakdown() {
   if (isOpen) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-function checkSmartBuilder() {
-  const fields = ['smart-s', 'smart-m', 'smart-a', 'smart-r', 'smart-t'].map(id => document.getElementById(id));
-  const missing = fields.filter(field => !field.value.trim());
-  fields.forEach(field => field.classList.toggle('missing', !field.value.trim()));
+function checkSmartMatching() {
+  const answers = ['S', 'M', 'A', 'R', 'T'];
+  const selects = [...document.querySelectorAll('#smart-matching select')];
   const feedback = document.getElementById('smart-feedback');
-  if (missing.length) {
+  const unanswered = selects.filter(select => !select.value);
+
+  selects.forEach((select, index) => {
+    select.classList.remove('correct', 'wrong');
+    if (select.value) select.classList.add(select.value === answers[index] ? 'correct' : 'wrong');
+  });
+
+  if (unanswered.length) {
     feedback.className = 'feedback-box show incorrect';
-    feedback.innerHTML = `<strong>Нужно ещё немного конкретики.</strong> Заполни ${missing.length === 1 ? 'оставшееся поле' : `оставшиеся поля: ${missing.length}`} — хорошая SMART-цель держится на всех пяти опорах.`;
-    missing[0].focus();
+    feedback.innerHTML = `<strong>Выбери критерий для каждого примера.</strong> Осталось: ${unanswered.length}.`;
+    unanswered[0].focus();
     return;
   }
+
+  const wrong = selects.filter((select, index) => select.value !== answers[index]);
+  if (wrong.length) {
+    feedback.className = 'feedback-box show incorrect';
+    feedback.innerHTML = `<strong>Пока не всё совпало.</strong> Проверь выделенные соответствия: ${wrong.length}. Подумай, что именно показывает каждый пример — результат, число, достижимость, связь с общей целью или срок.`;
+    wrong[0].focus();
+    return;
+  }
+
+  selects.forEach(select => select.disabled = true);
   feedback.className = 'feedback-box show correct';
-  feedback.innerHTML = `<strong>Все пять критериев на месте.</strong><br>Твоя заготовка: «${fields[0].value.trim()}: ${fields[1].value.trim()}. Это достижимо, потому что ${fields[2].value.trim().toLowerCase()}. Цель помогает: ${fields[3].value.trim().toLowerCase()}. Срок: ${fields[4].value.trim()}».`;
+  feedback.innerHTML = '<strong>Верно: все пять частей цели на своих местах.</strong> Вместе они образуют понятную SMART-цель: что продаём, сколько, почему результат достижим, зачем он нужен ресторану и к какому сроку.';
 }
 
 function toggleReason(button) {

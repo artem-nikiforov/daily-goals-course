@@ -7,7 +7,7 @@
   <meta name="description" content="Интерактивный курс о постановке целей и управлении их достижением в течение дня.">
   <title>Как управлять достижением целей на день</title>
   <link rel="stylesheet" href="css/kuds.css?v=5">
-  <link rel="stylesheet" href="style.css?v=25">
+  <link rel="stylesheet" href="style.css?v=26">
 </head>
 <body>
   <nav id="top-nav" aria-label="Навигация по курсу">
@@ -146,7 +146,7 @@
           <p>Чтобы команда работала слаженно, сначала переведи общий план в понятные ориентиры для каждой зоны. Ответь на вопросы ниже, а затем используй ответы, чтобы поставить сотрудникам конкретные задачи.</p>
         </div>
         <div class="question-stack fade-in">
-          <div><span>01</span><div><p>Какие результаты нужны на кухне, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p><small><b>Что делать:</b> договорись с командой кухни, за какими показателями она следит на смене.</small></div></div>
+          <div><span>01</span><div><p>Как организовать работу кухни, чтобы ресторан успевал продавать столько блюд, сколько запланировано?</p><small><b>Что делать:</b> договорись с командой кухни о расстановке по станциям, обозначь зону ответственности каждого и объясни первичные и вторичные обязанности.</small></div></div>
           <div><span>02</span><div><p>Как сотрудники должны выполнять работу, чтобы не получить ни одного негативного отзыва?</p><small><b>Что делать:</b> назови команде действия в сервисе и наблюдай за ними в работе.</small></div></div>
           <div><span>03</span><div><p>На какую сумму должны продавать кассиры каждый час, чтобы в конце смены получилась плановая выручка?</p><small><b>Что делать:</b> рассчитай сумму из плана смены и используй её как контрольную точку.</small></div></div>
         </div>
@@ -214,16 +214,16 @@
 
         <div class="quiz-card fade-in">
           <div class="quiz-top"><span>Практика</span><b>02</b></div>
-          <h2>Переформулируй цель «Увеличить продажи» по SMART</h2>
-          <p>Заполни все пять опор — из них получится готовая формулировка.</p>
-          <div class="smart-builder">
-          <label><span>S · Что продаём?</span><input id="smart-s" type="text" placeholder="Например: пирожки с вишней"></label>
-            <label><span>M · Сколько?</span><input id="smart-m" type="text" placeholder="Например: 15 штук"></label>
-            <label><span>A · Почему достижимо?</span><input id="smart-a" type="text" placeholder="Например: обычно сотрудник продаёт 10"></label>
-            <label><span>R · На какую общую цель влияет?</span><input id="smart-r" type="text" placeholder="Например: увеличит средний чек"></label>
-            <label><span>T · К какому времени?</span><input id="smart-t" type="text" placeholder="Например: с 9:00 до 11:00"></label>
+          <h2>Соотнеси части цели с критериями SMART</h2>
+          <p>Для каждого готового примера выбери критерий SMART, который он раскрывает. Каждый критерий используется один раз.</p>
+          <div class="smart-matching" id="smart-matching">
+            <label><span>Продажи пирожков с вишней</span><select aria-label="Критерий для продаж пирожков с вишней"><option value="">Выбери критерий</option><option value="S">S · Specific</option><option value="M">M · Measurable</option><option value="A">A · Achievable</option><option value="R">R · Relevant</option><option value="T">T · Time-bound</option></select></label>
+            <label><span>10 + 5 = 15</span><select aria-label="Критерий для количества пирожков"><option value="">Выбери критерий</option><option value="S">S · Specific</option><option value="M">M · Measurable</option><option value="A">A · Achievable</option><option value="R">R · Relevant</option><option value="T">T · Time-bound</option></select></label>
+            <label><span>На 5 больше, чем обычно</span><select aria-label="Критерий для достижимости цели"><option value="">Выбери критерий</option><option value="S">S · Specific</option><option value="M">M · Measurable</option><option value="A">A · Achievable</option><option value="R">R · Relevant</option><option value="T">T · Time-bound</option></select></label>
+            <label><span>Увеличение чека ресторана</span><select aria-label="Критерий для связи с общей целью"><option value="">Выбери критерий</option><option value="S">S · Specific</option><option value="M">M · Measurable</option><option value="A">A · Achievable</option><option value="R">R · Relevant</option><option value="T">T · Time-bound</option></select></label>
+            <label><span>С 9:00 до 11:00</span><select aria-label="Критерий для срока цели"><option value="">Выбери критерий</option><option value="S">S · Specific</option><option value="M">M · Measurable</option><option value="A">A · Achievable</option><option value="R">R · Relevant</option><option value="T">T · Time-bound</option></select></label>
           </div>
-          <button class="btn-check" type="button" onclick="checkSmartBuilder()">Проверить формулировку</button>
+          <button class="btn-check" type="button" onclick="checkSmartMatching()">Проверить соответствия</button>
           <div class="feedback-box" id="smart-feedback" aria-live="polite"></div>
         </div>
         <div class="smart-checklist-bridge fade-in"><b>SMART готов. Теперь соберём всё в один алгоритм.</b><span>Итоговый чек-лист поможет не забыть вклад сотрудника, его возможности, способ достижения и проверку общей цели.</span></div>
