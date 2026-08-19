@@ -121,6 +121,7 @@ MANIFEST_TEMPLATE = """\
 SKIP_FILES = {"scorm_pack.py", "HERO-PROMPT.txt", ".DS_Store", "Thumbs.db"}
 SKIP_DIRS  = {".git", ".svn", "__pycache__", "node_modules", ".vscode"}
 SKIP_EXTS  = {".pyc", ".pyo", ".zip", ".py", ".docx"}
+COURSE_IDENTIFIER = "kak_upravlyat_dostizheniem_celey_na_den"
 
 
 def slugify(name: str) -> str:
@@ -180,9 +181,9 @@ def collect_files(base: Path) -> list[tuple[str, Path]]:
 def build():
     base = Path(__file__).parent.resolve()
     folder_name = base.name
-    course_id    = slugify(folder_name)
+    course_id    = COURSE_IDENTIFIER
     course_title = folder_name
-    zip_path     = base / f"{course_id}.zip"
+    zip_path     = base / "course.zip"
 
     # Sanity check
     index_html = base / "index.html"
