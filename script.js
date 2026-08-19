@@ -40,12 +40,42 @@ function navigateTo(pageId) {
 function completeChapter(completedPageId, nextPageId) {
   const completedIndex = CHAPTER_ORDER.indexOf(completedPageId);
   if (completedIndex < 0 || currentPage !== completedPageId || completedIndex >= unlockedChapters) return;
+  if (!hasAnsweredChapterTests(completedPageId)) {
+    showTestRequiredHint(completedPageId);
+    return;
+  }
 
   unlockedChapters = Math.max(unlockedChapters, Math.min(completedIndex + 2, CHAPTER_ORDER.length));
   saveProgress();
   navigateTo(nextPageId);
 }
 
+function hasAnsweredChapterTests(pageId) {
+  const page = document.getElementById(`page-${pageId}`);
+  if (!page) return true;
+
+  const choiceGroups = [...page.querySelectorAll('.choice-grid, .choice-list')];
+  if (choiceGroups.some(group => group.dataset.answered !== 'true')) return false;
+
+  const smartSelects = [...page.querySelectorAll('#smart-matching select')];
+  return smartSelects.every(select => Boolean(select.value));
+}
+
+function showTestRequiredHint(pageId) {
+  const page = document.getElementById(`page-${pageId}`);
+  const nextRow = page?.querySelector('.next-row');
+  if (!nextRow) return;
+
+  let hint = nextRow.querySelector('.course-gate-hint');
+  if (!hint) {
+    hint = document.createElement('p');
+    hint.className = 'course-gate-hint';
+    hint.setAttribute('role', 'status');
+    nextRow.prepend(hint);
+  }
+  hint.textContent = 'Сначала пройди тест выше.';
+  hint.classList.add('show');
+}
 function initFadeIn() {
   fadeObserver?.disconnect();
   const elements = document.querySelectorAll('.page.active .fade-in:not(.visible)');
@@ -103,6 +133,7 @@ function answerChoice(button, isCorrect, feedbackId) {
   const feedback = document.getElementById(feedbackId);
   const group = button.closest('.choice-grid, .choice-list');
   if (!feedback || !group || group.dataset.solved === 'true') return;
+  group.dataset.answered = 'true';
 
   const caseFeedback = {
     'case-feedback-1': {
