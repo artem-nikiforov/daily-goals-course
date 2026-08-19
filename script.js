@@ -201,14 +201,14 @@ function toggleSmartBreakdown() {
 }
 
 function checkSmartMatching() {
-  const answers = ['S', 'M', 'A', 'R', 'T'];
+
   const selects = [...document.querySelectorAll('#smart-matching select')];
   const feedback = document.getElementById('smart-feedback');
   const unanswered = selects.filter(select => !select.value);
 
-  selects.forEach((select, index) => {
+  selects.forEach(select => {
     select.classList.remove('correct', 'wrong');
-    if (select.value) select.classList.add(select.value === answers[index] ? 'correct' : 'wrong');
+    if (select.value) select.classList.add(select.value === select.dataset.answer ? 'correct' : 'wrong');
   });
 
   if (unanswered.length) {
@@ -218,7 +218,7 @@ function checkSmartMatching() {
     return;
   }
 
-  const wrong = selects.filter((select, index) => select.value !== answers[index]);
+  const wrong = selects.filter(select => select.value !== select.dataset.answer);
   if (wrong.length) {
     feedback.className = 'feedback-box show incorrect';
     feedback.innerHTML = `<strong>Пока не всё совпало.</strong> Проверь выделенные соответствия: ${wrong.length}. Подумай, что именно показывает каждый пример — результат, число, достижимость, связь с общей целью или срок.`;

@@ -217,11 +217,11 @@
           <h2>Соотнеси части цели с критериями SMART</h2>
           <p>Для каждого готового примера выбери критерий SMART, который он раскрывает. Каждый критерий используется один раз.</p>
           <div class="smart-matching" id="smart-matching">
-            <label><span>Продажи пирожков с вишней</span><select aria-label="Критерий для продаж пирожков с вишней"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
-            <label><span>15 пирожков</span><select aria-label="Критерий для количества пирожков"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
-            <label><span>На 5 больше, чем обычно</span><select aria-label="Критерий для достижимости цели"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
-            <label><span>Увеличение чека ресторана</span><select aria-label="Критерий для связи с общей целью"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
-            <label><span>С 9:00 до 11:00</span><select aria-label="Критерий для срока цели"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
+            <label><span>С 9:00 до 11:00</span><select data-answer="T" aria-label="Критерий для срока цели"><option value="">Выбери критерий</option><option value="R">R · Релевантность</option><option value="M">M · Измеримость</option><option value="T">T · Ограниченность во времени</option><option value="A">A · Достижимость</option><option value="S">S · Конкретность</option></select></label>
+            <label><span>15 пирожков</span><select data-answer="M" aria-label="Критерий для количества пирожков"><option value="">Выбери критерий</option><option value="A">A · Достижимость</option><option value="M">M · Измеримость</option><option value="T">T · Ограниченность во времени</option><option value="R">R · Релевантность</option><option value="S">S · Конкретность</option></select></label>
+            <label><span>Увеличение чека ресторана</span><select data-answer="R" aria-label="Критерий для связи с общей целью"><option value="">Выбери критерий</option><option value="M">M · Измеримость</option><option value="S">S · Конкретность</option><option value="A">A · Достижимость</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option></select></label>
+            <label><span>Продажи пирожков с вишней</span><select data-answer="S" aria-label="Критерий для продаж пирожков с вишней"><option value="">Выбери критерий</option><option value="S">S · Конкретность</option><option value="T">T · Ограниченность во времени</option><option value="R">R · Релевантность</option><option value="M">M · Измеримость</option><option value="A">A · Достижимость</option></select></label>
+            <label><span>На 5 больше, чем обычно</span><select data-answer="A" aria-label="Критерий для достижимости цели"><option value="">Выбери критерий</option><option value="R">R · Релевантность</option><option value="T">T · Ограниченность во времени</option><option value="A">A · Достижимость</option><option value="S">S · Конкретность</option><option value="M">M · Измеримость</option></select></label>
           </div>
           <button class="btn-check" type="button" onclick="checkSmartMatching()">Проверить соответствия</button>
           <div class="feedback-box" id="smart-feedback" aria-live="polite"></div>
@@ -404,6 +404,6 @@
     </section>
   </main>
 
-  <script src="script.js?v=16"></script>
+  <script src="script.js?v=17"></script>
 </body>
 </html>
