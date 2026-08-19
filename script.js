@@ -200,6 +200,29 @@ function toggleSmartBreakdown() {
   if (isOpen) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
+function shuffleInPlace(items) {
+  for (let index = items.length - 1; index > 0; index -= 1) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[randomIndex]] = [items[randomIndex], items[index]];
+  }
+  return items;
+}
+
+function shuffleSmartMatching() {
+  const container = document.getElementById('smart-matching');
+  if (!container) return;
+
+  const rows = shuffleInPlace([...container.children]);
+  rows.forEach(row => {
+    const select = row.querySelector('select');
+    const placeholder = select?.querySelector('option[value=""]');
+    if (!select || !placeholder) return;
+
+    const criteria = shuffleInPlace([...select.options].filter(option => option.value));
+    select.replaceChildren(placeholder, ...criteria);
+  });
+  container.replaceChildren(...rows);
+}
 function checkSmartMatching() {
 
   const selects = [...document.querySelectorAll('#smart-matching select')];
@@ -296,6 +319,7 @@ function completeCourse() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  shuffleSmartMatching();
   loadProgress();
   initMadinaAudio();
   navigateTo('home');
