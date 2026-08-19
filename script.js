@@ -21,6 +21,11 @@ function navigateTo(pageId) {
   const target = document.getElementById(`page-${pageId}`);
   if (!target) return;
   const requestedChapter = CHAPTER_ORDER.indexOf(pageId);
+  const currentChapter = CHAPTER_ORDER.indexOf(currentPage);
+  if (requestedChapter > currentChapter && currentChapter >= 0 && !hasAnsweredChapterTests(currentPage)) {
+    showTestRequiredHint(currentPage);
+    return;
+  }
   if (requestedChapter >= unlockedChapters) return;
 
   PAGES.forEach(id => document.getElementById(`page-${id}`)?.classList.remove('active'));
