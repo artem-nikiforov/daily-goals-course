@@ -307,12 +307,8 @@ function completeCourse() {
   unlockedChapters = CHAPTER_ORDER.length;
   saveProgress();
   try { localStorage.setItem(`${PROGRESS_KEY}_completed`, 'passed'); } catch (error) {}
-  if (window.SCORM && typeof SCORM.set === 'function') {
-    try {
-      SCORM.set('cmi.core.lesson_status', 'passed');
-      SCORM.set('cmi.core.score.raw', '100');
-      SCORM.commit?.();
-    } catch (error) {}
+  if (window.SCORM && typeof SCORM.complete === 'function') {
+    try { SCORM.complete(); } catch (error) {}
   }
   document.getElementById('completion-panel')?.classList.add('show');
   applyHomeLocks();
