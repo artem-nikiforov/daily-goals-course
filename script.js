@@ -31,6 +31,7 @@ function navigateTo(pageId) {
   PAGES.forEach(id => document.getElementById(`page-${id}`)?.classList.remove('active'));
   target.classList.add('active');
   currentPage = pageId;
+  if (pageId === 'smart') resetSmartMatching();
   window.scrollTo({ top: 0, behavior: 'instant' });
 
   const chapterIndex = requestedChapter;
@@ -223,6 +224,23 @@ function shuffleSmartMatching() {
   });
   container.replaceChildren(...rows);
 }
+
+function resetSmartMatching() {
+  const selects = [...document.querySelectorAll('#smart-matching select')];
+  const feedback = document.getElementById('smart-feedback');
+
+  selects.forEach(select => {
+    select.value = '';
+    select.selectedIndex = 0;
+    select.disabled = false;
+    select.classList.remove('correct', 'wrong');
+  });
+  if (feedback) {
+    feedback.className = 'feedback-box';
+    feedback.textContent = '';
+  }
+}
+
 function checkSmartMatching() {
 
   const selects = [...document.querySelectorAll('#smart-matching select')];
@@ -310,8 +328,9 @@ function completeCourse() {
   if (window.SCORM && typeof SCORM.complete === 'function') {
     try { SCORM.complete(); } catch (error) {}
   }
-  document.getElementById('completion-panel')?.classList.add('show');
   applyHomeLocks();
+  try { window.top?.close(); } catch (error) {}
+  try { window.close(); } catch (error) {}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
