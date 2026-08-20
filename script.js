@@ -43,6 +43,47 @@ function navigateTo(pageId) {
   setTimeout(initFadeIn, 30);
 }
 
+function resetCourseInteractions() {
+  document.querySelectorAll('.choice-grid, .choice-list').forEach(group => {
+    delete group.dataset.answered;
+    delete group.dataset.solved;
+    group.querySelectorAll('button').forEach(button => {
+      button.disabled = false;
+      button.classList.remove('correct', 'wrong');
+    });
+  });
+  document.querySelectorAll('.feedback-box, .reflection-feedback').forEach(feedback => {
+    feedback.className = feedback.id === 'reflection-feedback' ? 'reflection-feedback' : 'feedback-box';
+    feedback.textContent = '';
+  });
+  document.querySelectorAll('.understanding-checklist input').forEach(input => { input.checked = false; });
+  document.querySelectorAll('.reason-card').forEach(card => {
+    card.classList.remove('open');
+    card.querySelector('button')?.setAttribute('aria-expanded', 'false');
+  });
+  document.querySelectorAll('.question-guidance').forEach(details => { details.open = false; });
+  document.getElementById('completion-panel')?.classList.remove('show');
+  resetSmartMatching();
+}
+
+function startCourse() {
+  unlockedChapters = 1;
+  resetCourseInteractions();
+  try {
+    localStorage.removeItem(PROGRESS_KEY);
+    localStorage.removeItem(`${PROGRESS_KEY}_completed`);
+  } catch (error) {}
+  if (window.SCORM && typeof SCORM.set === 'function') {
+    try {
+      SCORM.set('cmi.suspend_data', '');
+      SCORM.set('cmi.core.lesson_status', 'incomplete');
+      SCORM.commit?.();
+    } catch (error) {}
+  }
+  applyHomeLocks();
+  navigateTo('intro');
+}
+
 function completeChapter(completedPageId, nextPageId) {
   const completedIndex = CHAPTER_ORDER.indexOf(completedPageId);
   if (completedIndex < 0 || currentPage !== completedPageId || completedIndex >= unlockedChapters) return;
